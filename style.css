@@ -1,0 +1,130 @@
+:root {
+ --bg-color: #f8f9fa;
+ --calculator-bg: #ffffff;
+ --btn-bg: #e9ecef;
+ --btn-hover: #d1d7dc;
+ --operator-bg: #ff9f1c;
+ --operator-hover: #e68a19;
+ --equals-bg: #2ec4b6;
+ --equals-hover: #28a899;
+ --clear-bg: #ff6b6b;
+ --clear-hover: #e65a5a;
+ --text-dark: #212529;
+ --text-light: #f8f9fa;
+}
+
+* {
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+ background-color: var(--bg-color);
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ min-height: 100vh;
+}
+
+.calculator {
+ background-color: var(--calculator-bg);
+ border-radius: 15px;
+ box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+ width: 320px;
+ padding: 20px;
+ display: grid;
+ grid-template-columns: repeat(4, 1fr);
+ grid-gap: 10px;
+}
+
+.display {
+ grid-column: span 4;
+ background-color: var(--bg-color);
+ border-radius: 10px;
+ padding: 15px;
+ text-align: right;
+ margin-bottom: 10px;
+ min-height: 80px;
+ display: flex;
+ flex-direction: column;
+ justify-content: space-between;
+}
+
+.previous-operand {
+ font-size: 1rem;
+ color: rgba(0, 0, 0, 0.6);
+ min-height: 1.2rem;
+ word-wrap: break-word;
+}
+
+.current-operand {
+ font-size: 2rem;
+ color: var(--text-dark);
+ word-wrap: break-word;
+}
+
+.btn {
+ border: none;
+ border-radius: 10px;
+ padding: 15px 0;
+ font-size: 1.2rem;
+ cursor: pointer;
+ background-color: var(--btn-bg);
+ color: var(--text-dark);
+ transition: all 0.2s ease;
+}
+
+.btn:hover {
+ background-color: var(--btn-hover);
+}
+
+.btn[data-action="divide"],
+.btn[data-action="multiply"],
+.btn[data-action="subtract"],
+.btn[data-action="add"] {
+ background-color: var(--operator-bg);
+ color: var(--text-light);
+}
+
+.btn[data-action="divide"]:hover,
+.btn[data-action="multiply"]:hover,
+.btn[data-action="subtract"]:hover,
+.btn[data-action="add"]:hover {
+ background-color: var(--operator-hover);
+}
+
+.btn[data-action="equals"] {
+ background-color: var(--equals-bg);
+ color: var(--text-light);
+}
+
+.btn[data-action="equals"]:hover {
+ background-color: var(--equals-hover);
+}
+
+.btn[data-action="clear"] {
+ background-color: var(--clear-bg);
+ color: var(--text-light);
+}
+
+.btn[data-action="clear"]:hover {
+ background-color: var(--clear-hover);
+}
+
+.span-2 {
+ grid-column: span 2;
+}
+
+@media (max-width: 350px) {
+ .calculator {
+     width: 280px;
+     padding: 15px;
+ }
+ 
+ .btn {
+     padding: 12px 0;
+     font-size: 1rem;
+ }
+}
